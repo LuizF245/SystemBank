@@ -89,20 +89,20 @@ public class ContaBanco {
 
     public void pagarMensal() {
 
-        float valorMensalidade;
+        float valorMensalidade = 0;
 
         if (getTipo().equalsIgnoreCase("Conta Corrente")) {
             valorMensalidade = 12;
-            if (getSaldo() < 0) {
-                System.out.println("Você pagou a mensalidade de R$" + valorMensalidade + " e ficou com R$" + getSaldo() + " de Devedor pro Banco!");
-            } else {
-                setSaldo(getSaldo() - valorMensalidade);
-                System.out.println("Foi descontado R$" + valorMensalidade + " de sua conta para pagar a Mensalidade!");
-            }
         } else if (getTipo().equalsIgnoreCase("Conta Poupança")) {
             valorMensalidade = 20;
+        }
+
+        if (isStatus() == false) {
+            System.out.println("Você não tem uma conta ativa!");
+        } else {
             if (getSaldo() < 0) {
-                System.out.println("Você pagou a mensalidade e ficou com R$" + getSaldo() + " de Devedor pro Banco!");
+                setSaldo(getSaldo() - valorMensalidade);
+                System.out.println("Você pagou a mensalidade de R$" + valorMensalidade + " e ficou com R$" + getSaldo() + " de Devedor pro Banco!");
             } else {
                 setSaldo(getSaldo() - valorMensalidade);
                 System.out.println("Foi descontado R$" + valorMensalidade + " de sua conta para pagar a Mensalidade!");
