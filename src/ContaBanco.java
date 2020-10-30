@@ -8,12 +8,9 @@ public class ContaBanco {
     private float saldo;
     private boolean status;
 
-    public ContaBanco(int numConta, String tipo, String dono, float saldo, boolean status) {
-        this.numConta = numConta;
-        this.tipo = tipo;
-        this.dono = dono;
-        this.saldo = saldo;
-        this.status = status;
+    public ContaBanco() {
+        saldo = 0;
+        status = false;
     }
 
     public void abrirConta() {

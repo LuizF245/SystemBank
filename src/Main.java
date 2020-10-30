@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        ContaBanco contaBanco = new ContaBanco(0, "", "", 0, false);
+        ContaBanco contaBanco = new ContaBanco();
 
         contaBanco.setDono("Luiz Fernando");
         contaBanco.setTipo("cp");
