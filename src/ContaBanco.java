@@ -13,7 +13,12 @@ public class ContaBanco {
         status = false;
     }
 
-    public void abrirConta() {
+    public void abrirConta(String tipo, String dono) {
+        setDono(dono);
+        setTipo(tipo);
+        setNumConta(getNumConta() + 1);
+        setStatus(true);
+
         System.out.println("Seu nome é " + getDono());
         System.out.println("Você está abrindo uma " + getTipo());
         System.out.println("O número da sua conta é " + getNumConta());
@@ -26,7 +31,6 @@ public class ContaBanco {
             System.out.println("Você optou por abrir uma " + getTipo() + ". E por isso ganhou R$" + getSaldo() + " em sua conta!");
         }
 
-        setStatus(true);
         mostrarSaldo();
         System.out.println("Sua conta se encontra " + isStatus());
         pularLinha();
