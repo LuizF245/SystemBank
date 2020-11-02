@@ -102,10 +102,6 @@ public class ContaBanco {
         pularLinha();
     }
 
-    private void mostrarSaldo() {
-        System.out.println("Seu saldo atual é de R$" + getSaldo());
-    }
-
 
     // Métodos Especiais
 
