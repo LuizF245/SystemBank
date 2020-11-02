@@ -14,25 +14,20 @@ public class ContaBanco {
         System.out.println("Dono: " + this.getDono());
         System.out.println("Saldo: R$" + this.getSaldo());
         System.out.println("Status: " + this.isStatus());
+        pularLinha();
     }
 
-    public void abrirConta(String tipo, String dono) {
+    public void abrirConta(String tipo, String dono, int numConta) {
         this.setDono(dono);
         this.setTipo(tipo);
-        this.setNumConta(getNumConta() + 1);
         this.setStatus(true);
+        this.setNumConta(numConta);
 
         if (this.getTipo().equalsIgnoreCase("cc")) {
             this.setSaldo(50);
-            System.out.println("Você abriu uma conta corrente, por isso ganhou R$50,00.");
         } else if (this.getTipo().equalsIgnoreCase("cp")) {
             this.setSaldo(150);
-            System.out.println("Você abriu uma conta poupança, por isso ganhou R$150,00.");
         }
-
-        mostrarSaldo();
-        System.out.println("Conta aberta com Sucesso!");
-        System.out.println("Sua conta se encontra " + this.isStatus());
         pularLinha();
     }
 
@@ -57,9 +52,7 @@ public class ContaBanco {
         } else {
             this.setSaldo(this.getSaldo() + valorDeposito);
             System.out.println("Você depositou em sua conta R$" + valorDeposito);
-            mostrarSaldo();
         }
-
         pularLinha();
     }
 
@@ -76,11 +69,9 @@ public class ContaBanco {
                     System.out.println("E ficou com devedor de R$" + this.getSaldo() + " para o Banco.");
             } else if (this.getSaldo() < valorSaque) {
                 System.out.println("Você não pode ficar como devedor no Banco pois a sua conta é " + this.getTipo());
-                mostrarSaldo();
             } else {
                 this.setSaldo(this.getSaldo() - valorSaque);
-                System.out.println("Você sacou R$" + valorSaque);
-                mostrarSaldo();
+                System.out.println("Você sacou R$" + valorSaque + " e ficou com um total de R$" + this.getSaldo());
             }
         }
 
@@ -105,10 +96,9 @@ public class ContaBanco {
                 System.out.println("Você pagou a mensalidade de R$" + valorMensalidade + " e ficou com R$" + this.getSaldo() + " de Devedor pro Banco!");
             } else {
                 this.setSaldo(this.getSaldo() - valorMensalidade);
-                System.out.println("Foi descontado R$" + valorMensalidade + " de sua conta para pagar a Mensalidade!");
+                System.out.println("Foi descontado R$" + valorMensalidade + " de sua conta para pagar a Mensalidade! Seu saldo atual é R$" + this.getSaldo());
             }
         }
-        mostrarSaldo();
         pularLinha();
     }
 
